@@ -42,8 +42,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'haml-rails'                # Haml templating & generator engine
 gem 'kiba'                      # ETL & reporting (https://github.com/thbar/kiba)
+gem 'awesome_print'             # Pretty-print any object
 
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 gem 'draper'                    # Decorator for models
 gem 'font-awesome-rails'
 
