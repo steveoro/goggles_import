@@ -1,0 +1,1797 @@
+{
+  "name": "Distanze speciali Master Lombardia",
+  "meetingURL": "https://www.federnuoto.it/home/master/circuito-supermaster/eventi-circuito-supermaster.html#/risultati/134168:distanze-speciali-master-lombardia.html",
+  "manifestURL": "/component/solrconnect/download.html?file=L3Zhci93d3cvZmluX2ZpbGVzL2V2ZW50aS8wMDAwMTM0MTY4LnBkZg==",
+  "dateDay1": "21",
+  "dateMonth1": "Ottobre",
+  "dateYear1": "2018",
+  "dateDay2": "21",
+  "dateMonth2": "Ottobre",
+  "dateYear2": "2018",
+  "organization": "COMITATO REGIONALE LOMBARDIA",
+  "venue1": "PISCINA COMUNALE LA MARMORA",
+  "address1": "VIA RODI, 20 - Brescia (BS)",
+  "venue2": "",
+  "address2": "",
+  "poolLength": "50",
+  "timeLimit": "SI",
+  "registration": "08/10 - 17/10 23:45",
+  "sections": [
+    {
+      "title": "800 Stile Libero - M25",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "REGONASCHI DAVIDE",
+          "year": "1991",
+          "team": "Aquatic Center ssd",
+          "timing": "11:38.10",
+          "score": "734,64"
+        },
+        {
+          "pos": "2",
+          "name": "MEO SERGIO",
+          "year": "1990",
+          "team": "Rari Nantes Saronno",
+          "timing": "11:51.00",
+          "score": "721,31"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M30",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "DAPRA' DONATO",
+          "year": "1985",
+          "team": "Aquatic Center ssd",
+          "timing": "09:49.20",
+          "score": "861,90"
+        },
+        {
+          "pos": "2",
+          "name": "Albini Benedetto",
+          "year": "1985",
+          "team": "Verolanuoto",
+          "timing": "10:39.40",
+          "score": "794,23"
+        },
+        {
+          "pos": "3",
+          "name": "FERRARI FILIPPO",
+          "year": "1987",
+          "team": "Canottieri Baldesio",
+          "timing": "10:51.50",
+          "score": "779,48"
+        },
+        {
+          "pos": "4",
+          "name": "MORETTI GIUSEPPE",
+          "year": "1986",
+          "team": "Canottieri Bissolati",
+          "timing": "13:07.30",
+          "score": "645,03"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M35",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BETTINAZZI MORENO",
+          "year": "1982",
+          "team": "Aquatic Center ssd",
+          "timing": "11:01.00",
+          "score": "786,64"
+        },
+        {
+          "pos": "2",
+          "name": "CAPRA ALESSANDRO",
+          "year": "1980",
+          "team": "Canottieri Bissolati",
+          "timing": "14:06.10",
+          "score": "614,55"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M40",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Tersar Maurizio",
+          "year": "1976",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "09:31.90",
+          "score": "919,85"
+        },
+        {
+          "pos": "2",
+          "name": "Sacchi Marco",
+          "year": "1978",
+          "team": "Verolanuoto",
+          "timing": "10:30.70",
+          "score": "834,09"
+        },
+        {
+          "pos": "3",
+          "name": "CLEMENCIGH MATTEO",
+          "year": "1977",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "11:23.30",
+          "score": "769,88"
+        },
+        {
+          "pos": "4",
+          "name": "AMELLI ANDREA",
+          "year": "1976",
+          "team": "NC Castiglione delle Stiv",
+          "timing": "11:51.90",
+          "score": "738,95"
+        },
+        {
+          "pos": "5",
+          "name": "Piacentini Simone",
+          "year": "1978",
+          "team": "Sporting Lodi ssd",
+          "timing": "12:52.40",
+          "score": "681,07"
+        },
+        {
+          "pos": "6",
+          "name": "Scotti Silvio",
+          "year": "1976",
+          "team": "Master Melzo Nuoto",
+          "timing": "13:37.40",
+          "score": "643,58"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M45",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "PEDRAZZOLI ANDREA",
+          "year": "1974",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "09:56.40",
+          "score": "896,45"
+        },
+        {
+          "pos": "2",
+          "name": "Fontana Renato",
+          "year": "1974",
+          "team": "Forum ssd - Assago",
+          "timing": "10:07.10",
+          "score": "880,65"
+        },
+        {
+          "pos": "3",
+          "name": "Amendola Federico Riccardo Alfonso",
+          "year": "1972",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "10:36.40",
+          "score": "840,10"
+        },
+        {
+          "pos": "4",
+          "name": "Pernumian Marco",
+          "year": "1971",
+          "team": "Nuoto Club Milano asd",
+          "timing": "10:42.20",
+          "score": "832,51"
+        },
+        {
+          "pos": "5",
+          "name": "COSTANZO DANIELE",
+          "year": "1972",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "11:00.40",
+          "score": "809,57"
+        },
+        {
+          "pos": "6",
+          "name": "GARRAPA MARCELLO",
+          "year": "1971",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "11:06.70",
+          "score": "801,92"
+        },
+        {
+          "pos": "7",
+          "name": "GRAMEGNA FABIO",
+          "year": "1971",
+          "team": "Forum ssd - Assago",
+          "timing": "11:21.90",
+          "score": "784,04"
+        },
+        {
+          "pos": "8",
+          "name": "Bifulco Ottavio",
+          "year": "1971",
+          "team": "Nuoto Club Firenze",
+          "timing": "11:39.10",
+          "score": "764,75"
+        },
+        {
+          "pos": "9",
+          "name": "FIGAROLI MASSIMO",
+          "year": "1971",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "11:55.00",
+          "score": "747,75"
+        },
+        {
+          "pos": "10",
+          "name": "ZIGIOTTO ROBERTO",
+          "year": "1974",
+          "team": "Rari Nantes Legnano",
+          "timing": "14:00.20",
+          "score": "636,32"
+        },
+        {
+          "pos": "11",
+          "name": "SANNINO LUIGI",
+          "year": "1970",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "14:57.30",
+          "score": "595,83"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M50",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CROTTI MARIO",
+          "year": "1966",
+          "team": "Cilo ssd - Milano",
+          "timing": "10:08.70",
+          "score": "899,93"
+        },
+        {
+          "pos": "2",
+          "name": "PARISOTTO PAOLO",
+          "year": "1965",
+          "team": "Centro Nuoto Stra",
+          "timing": "10:54.80",
+          "score": "836,58"
+        },
+        {
+          "pos": "3",
+          "name": "Gorla Claudio",
+          "year": "1966",
+          "team": "Sporting Lodi ssd",
+          "timing": "10:59.00",
+          "score": "831,24"
+        },
+        {
+          "pos": "4",
+          "name": "BIANCHI PAOLO",
+          "year": "1967",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "10:60.00",
+          "score": "829,98"
+        },
+        {
+          "pos": "5",
+          "name": "MARTINELLI ROBERTO",
+          "year": "1967",
+          "team": "Verolanuoto",
+          "timing": "11:10.10",
+          "score": "817,48"
+        },
+        {
+          "pos": "6",
+          "name": "BRUNO UMBERTO",
+          "year": "1968",
+          "team": "Forum ssd - Assago",
+          "timing": "11:18.50",
+          "score": "807,35"
+        },
+        {
+          "pos": "7",
+          "name": "Rizzuto Pietro",
+          "year": "1967",
+          "team": "Forum ssd - Assago",
+          "timing": "11:36.90",
+          "score": "786,04"
+        },
+        {
+          "pos": "8",
+          "name": "SERESINI FABIO",
+          "year": "1969",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "11:41.50",
+          "score": "780,88"
+        },
+        {
+          "pos": "9",
+          "name": "SCORDAMAGLIA OLIVIERO",
+          "year": "1969",
+          "team": "Rari Nantes Legnano",
+          "timing": "12:14.30",
+          "score": "746,00"
+        },
+        {
+          "pos": "10",
+          "name": "DE MARCO ANDREA",
+          "year": "1969",
+          "team": "Rari Nantes Saronno",
+          "timing": "12:30.50",
+          "score": "729,90"
+        },
+        {
+          "pos": "11",
+          "name": "Piras Fabio",
+          "year": "1968",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "15:28.00",
+          "score": "590,29"
+        },
+        {
+          "pos": "12",
+          "name": "GALATI FRANCESCO",
+          "year": "1965",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "16:39.90",
+          "score": "547,84"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M55",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Ceruti Gionata",
+          "year": "1964",
+          "team": "Canottieri Bissolati",
+          "timing": "10:51.60",
+          "score": "877,82"
+        },
+        {
+          "pos": "2",
+          "name": "Rusconi Alfonso",
+          "year": "1963",
+          "team": "Lecco Olimpica Nuoto",
+          "timing": "12:49.50",
+          "score": "743,33"
+        },
+        {
+          "pos": "3",
+          "name": "GOTTARDO MAURIZIO",
+          "year": "1962",
+          "team": "G.A.M. Team ssd - Brescia",
+          "timing": "14:16.40",
+          "score": "667,90"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M60",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "D'elia Francesco",
+          "year": "1958",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "12:04.50",
+          "score": "822,72"
+        },
+        {
+          "pos": "2",
+          "name": "LUCCHETTA GIOVANNI",
+          "year": "1956",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "12:15.80",
+          "score": "810,08"
+        },
+        {
+          "pos": "3",
+          "name": "Marzullo Stefano",
+          "year": "1959",
+          "team": "Nuoto Club Milano asd",
+          "timing": "12:16.80",
+          "score": "808,98"
+        },
+        {
+          "pos": "4",
+          "name": "PANICUCCI MARCO",
+          "year": "1958",
+          "team": "Dimensione N Pontedera",
+          "timing": "12:43.00",
+          "score": "781,21"
+        },
+        {
+          "pos": "5",
+          "name": "BROCCOLINO MARCO PIER DAMIANO FULVIO",
+          "year": "1955",
+          "team": "Master Melzo Nuoto",
+          "timing": "12:57.10",
+          "score": "767,03"
+        },
+        {
+          "pos": "6",
+          "name": "MILOTTA GIUSEPPE",
+          "year": "1959",
+          "team": "Rari Nantes Legnano",
+          "timing": "12:58.60",
+          "score": "765,55"
+        },
+        {
+          "pos": "7",
+          "name": "LOZZA PAOLO",
+          "year": "1957",
+          "team": "Poseidon Sporting Club as",
+          "timing": "13:09.50",
+          "score": "754,98"
+        },
+        {
+          "pos": "8",
+          "name": "CALATRONI DANILO",
+          "year": "1959",
+          "team": "Cilo ssd - Milano",
+          "timing": "13:24.70",
+          "score": "740,72"
+        },
+        {
+          "pos": "9",
+          "name": "PIPPIA PASQUALE",
+          "year": "1955",
+          "team": "Poseidon Sporting Club as",
+          "timing": "13:26.80",
+          "score": "738,80"
+        },
+        {
+          "pos": "10",
+          "name": "REBOLINI GIOVANNI",
+          "year": "1956",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "17:49.00",
+          "score": "557,59"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M65",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BERRINI CLAUDIO",
+          "year": "1954",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "10:56.70",
+          "score": "964,23"
+        },
+        {
+          "pos": "2",
+          "name": "VELARDI EUGENIO",
+          "year": "1953",
+          "team": "Circolo Canottieri Aniene",
+          "timing": "13:15.50",
+          "score": "795,99"
+        },
+        {
+          "pos": "3",
+          "name": "MASSONI MAURIZIO",
+          "year": "1951",
+          "team": "Rari Nantes Saronno",
+          "timing": "13:51.70",
+          "score": "761,34"
+        },
+        {
+          "pos": "4",
+          "name": "CASTRACANI GIOVANNI",
+          "year": "1950",
+          "team": "Aquatic Center ssd",
+          "timing": "14:54.20",
+          "score": "708,13"
+        },
+        {
+          "pos": "5",
+          "name": "CUSCELA PIETRO",
+          "year": "1953",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "17:24.80",
+          "score": "606,06"
+        },
+        {
+          "pos": "6",
+          "name": "SIGNORELLI ERCOLE",
+          "year": "1951",
+          "team": "GIS Milano ssd",
+          "timing": "17:57.80",
+          "score": "587,50"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M75",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BITTO ALESSANDRO ANTONIO",
+          "year": "1941",
+          "team": "Master Melzo Nuoto",
+          "timing": "17:20.50",
+          "score": "699,75"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M80",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "MAINARDI ENNIO",
+          "year": "1939",
+          "team": "Il Cigno Coop.Sport Dil.",
+          "timing": "17:04.40",
+          "score": "774,07"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M25",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "MEO SERGIO",
+          "year": "1990",
+          "team": "Rari Nantes Saronno",
+          "timing": "22:01.80",
+          "score": "749,58"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M30",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Albini Benedetto",
+          "year": "1985",
+          "team": "Verolanuoto",
+          "timing": "19:57.20",
+          "score": "831,92"
+        },
+        {
+          "pos": "2",
+          "name": "FERRARI FILIPPO",
+          "year": "1987",
+          "team": "Canottieri Baldesio",
+          "timing": "20:40.70",
+          "score": "802,76"
+        },
+        {
+          "pos": "3",
+          "name": "MORETTI GIUSEPPE",
+          "year": "1986",
+          "team": "Canottieri Bissolati",
+          "timing": "24:34.70",
+          "score": "675,38"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M35",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CAPRA ALESSANDRO",
+          "year": "1980",
+          "team": "Canottieri Bissolati",
+          "timing": "26:19.60",
+          "score": "635,72"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M40",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "NISATO NICOLA",
+          "year": "1978",
+          "team": "DLF Nuoto Livorno",
+          "timing": "16:44.60",
+          "score": "1004,06"
+        },
+        {
+          "pos": "2",
+          "name": "Tersar Maurizio",
+          "year": "1976",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "18:02.20",
+          "score": "932,06"
+        },
+        {
+          "pos": "3",
+          "name": "CLEMENCIGH MATTEO",
+          "year": "1977",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "21:53.10",
+          "score": "768,17"
+        },
+        {
+          "pos": "4",
+          "name": "PERFETTI PAOLO",
+          "year": "1978",
+          "team": "Aquatic Center ssd",
+          "timing": "21:59.80",
+          "score": "764,27"
+        },
+        {
+          "pos": "5",
+          "name": "Piacentini Simone",
+          "year": "1978",
+          "team": "Sporting Lodi ssd",
+          "timing": "24:20.40",
+          "score": "690,69"
+        },
+        {
+          "pos": "6",
+          "name": "Scotti Silvio",
+          "year": "1976",
+          "team": "Master Melzo Nuoto",
+          "timing": "25:53.50",
+          "score": "649,30"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M45",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Fontana Renato",
+          "year": "1974",
+          "team": "Forum ssd - Assago",
+          "timing": "19:24.20",
+          "score": "888,10"
+        },
+        {
+          "pos": "2",
+          "name": "Amendola Federico Riccardo Alfonso",
+          "year": "1972",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "20:11.80",
+          "score": "853,22"
+        },
+        {
+          "pos": "3",
+          "name": "Pernumian Marco",
+          "year": "1971",
+          "team": "Nuoto Club Milano asd",
+          "timing": "20:21.00",
+          "score": "846,79"
+        },
+        {
+          "pos": "4",
+          "name": "GARRAPA MARCELLO",
+          "year": "1971",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "21:25.30",
+          "score": "804,43"
+        },
+        {
+          "pos": "5",
+          "name": "COSTANZO DANIELE",
+          "year": "1972",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "21:29.30",
+          "score": "801,93"
+        },
+        {
+          "pos": "6",
+          "name": "GRAMEGNA FABIO",
+          "year": "1971",
+          "team": "Forum ssd - Assago",
+          "timing": "21:47.20",
+          "score": "790,95"
+        },
+        {
+          "pos": "7",
+          "name": "Bifulco Ottavio",
+          "year": "1971",
+          "team": "Nuoto Club Firenze",
+          "timing": "22:39.20",
+          "score": "760,69"
+        },
+        {
+          "pos": "8",
+          "name": "CARNISELLI CRISTIAN",
+          "year": "1971",
+          "team": "Cilo ssd - Milano",
+          "timing": "23:04.80",
+          "score": "746,63"
+        },
+        {
+          "pos": "9",
+          "name": "FIGAROLI MASSIMO",
+          "year": "1971",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "23:07.70",
+          "score": "745,07"
+        },
+        {
+          "pos": "10",
+          "name": "Vasconcelli Dario",
+          "year": "1971",
+          "team": "Prosport Acqua ssd",
+          "timing": "24:40.60",
+          "score": "698,32"
+        },
+        {
+          "pos": "11",
+          "name": "PALLINI LEONARDO",
+          "year": "1974",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "25:15.30",
+          "score": "682,33"
+        },
+        {
+          "pos": "12",
+          "name": "Aquino Fabio",
+          "year": "1974",
+          "team": "Canottieri Baldesio",
+          "timing": "30:00.80",
+          "score": "574,15"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M50",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CROCE ALESSANDRO",
+          "year": "1969",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "20:33.80",
+          "score": "866,07"
+        },
+        {
+          "pos": "2",
+          "name": "BIANCHI PAOLO",
+          "year": "1967",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "20:48.40",
+          "score": "855,94"
+        },
+        {
+          "pos": "3",
+          "name": "Gorla Claudio",
+          "year": "1966",
+          "team": "Sporting Lodi ssd",
+          "timing": "20:56.70",
+          "score": "850,29"
+        },
+        {
+          "pos": "4",
+          "name": "PARISOTTO PAOLO",
+          "year": "1965",
+          "team": "Centro Nuoto Stra",
+          "timing": "21:08.30",
+          "score": "842,51"
+        },
+        {
+          "pos": "5",
+          "name": "MARTINELLI ROBERTO",
+          "year": "1967",
+          "team": "Verolanuoto",
+          "timing": "21:11.40",
+          "score": "840,46"
+        },
+        {
+          "pos": "6",
+          "name": "BRUNO UMBERTO",
+          "year": "1968",
+          "team": "Forum ssd - Assago",
+          "timing": "21:41.20",
+          "score": "821,21"
+        },
+        {
+          "pos": "7",
+          "name": "GOTTA DANILO",
+          "year": "1966",
+          "team": "Nuoto Club Firenze",
+          "timing": "21:57.10",
+          "score": "811,30"
+        },
+        {
+          "pos": "8",
+          "name": "Rizzuto Pietro",
+          "year": "1967",
+          "team": "Forum ssd - Assago",
+          "timing": "22:01.20",
+          "score": "808,78"
+        },
+        {
+          "pos": "9",
+          "name": "SERESINI FABIO",
+          "year": "1969",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "22:15.40",
+          "score": "800,18"
+        },
+        {
+          "pos": "10",
+          "name": "GAMBERONI DAVIDE",
+          "year": "1967",
+          "team": "Natatio Master Team asd",
+          "timing": "22:43.80",
+          "score": "783,52"
+        },
+        {
+          "pos": "11",
+          "name": "DE MARCO ANDREA",
+          "year": "1969",
+          "team": "Rari Nantes Saronno",
+          "timing": "23:53.70",
+          "score": "745,32"
+        },
+        {
+          "pos": "12",
+          "name": "VIGNOCCHI ROBERTO",
+          "year": "1967",
+          "team": "Sea Sub Modena",
+          "timing": "24:25.20",
+          "score": "729,29"
+        },
+        {
+          "pos": "13",
+          "name": "Dell'Orto Roberto",
+          "year": "1965",
+          "team": "Nuoto Club Seregno",
+          "timing": "24:38.10",
+          "score": "722,93"
+        },
+        {
+          "pos": "14",
+          "name": "Piras Fabio",
+          "year": "1968",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "28:31.90",
+          "score": "624,20"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M55",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Ceruti Gionata",
+          "year": "1964",
+          "team": "Canottieri Bissolati",
+          "timing": "20:45.60",
+          "score": "887,13"
+        },
+        {
+          "pos": "2",
+          "name": "PASQUALI LUCA",
+          "year": "1962",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "21:31.20",
+          "score": "855,80"
+        },
+        {
+          "pos": "3",
+          "name": "ARRONDO FERNANDO",
+          "year": "1964",
+          "team": "Settefrati Libertas MN 33 asd",
+          "timing": "23:17.10",
+          "score": "790,93"
+        },
+        {
+          "pos": "4",
+          "name": "Rusconi Alfonso",
+          "year": "1963",
+          "team": "Lecco Olimpica Nuoto",
+          "timing": "24:22.30",
+          "score": "755,67"
+        },
+        {
+          "pos": "5",
+          "name": "Ponteprino Mauro",
+          "year": "1960",
+          "team": "Derthona Nuoto",
+          "timing": "26:04.20",
+          "score": "706,44"
+        },
+        {
+          "pos": "6",
+          "name": "GOTTARDO MAURIZIO",
+          "year": "1962",
+          "team": "G.A.M. Team ssd - Brescia",
+          "timing": "26:38.00",
+          "score": "691,50"
+        },
+        {
+          "pos": "7",
+          "name": "FINCO LUIGI",
+          "year": "1962",
+          "team": "Settefrati Libertas MN 33 asd",
+          "timing": "26:44.50",
+          "score": "688,69"
+        },
+        {
+          "pos": "8",
+          "name": "Rigo Mauro",
+          "year": "1963",
+          "team": "Lecco Olimpica Nuoto",
+          "timing": "27:10.80",
+          "score": "677,59"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M60",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "D'elia Francesco",
+          "year": "1958",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "23:19.20",
+          "score": "826,91"
+        },
+        {
+          "pos": "2",
+          "name": "LUCCHETTA GIOVANNI",
+          "year": "1956",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "23:34.80",
+          "score": "817,79"
+        },
+        {
+          "pos": "3",
+          "name": "TOSI ANDREA",
+          "year": "1956",
+          "team": "Sea Sub Modena",
+          "timing": "23:47.50",
+          "score": "810,51"
+        },
+        {
+          "pos": "4",
+          "name": "PANICUCCI MARCO",
+          "year": "1958",
+          "team": "Dimensione N Pontedera",
+          "timing": "24:26.70",
+          "score": "788,85"
+        },
+        {
+          "pos": "5",
+          "name": "BROCCOLINO MARCO PIER DAMIANO FULVIO",
+          "year": "1955",
+          "team": "Master Melzo Nuoto",
+          "timing": "24:41.50",
+          "score": "780,97"
+        },
+        {
+          "pos": "6",
+          "name": "LOZZA PAOLO",
+          "year": "1957",
+          "team": "Poseidon Sporting Club as",
+          "timing": "24:45.20",
+          "score": "779,03"
+        },
+        {
+          "pos": "7",
+          "name": "CALATRONI DANILO",
+          "year": "1959",
+          "team": "Cilo ssd - Milano",
+          "timing": "25:28.70",
+          "score": "756,86"
+        },
+        {
+          "pos": "8",
+          "name": "PIPPIA PASQUALE",
+          "year": "1955",
+          "team": "Poseidon Sporting Club as",
+          "timing": "25:46.30",
+          "score": "748,24"
+        },
+        {
+          "pos": "9",
+          "name": "REBOLINI GIOVANNI",
+          "year": "1956",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "34:18.60",
+          "score": "562,04"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M65",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BERRINI CLAUDIO",
+          "year": "1954",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "20:51.70",
+          "score": "970,54"
+        },
+        {
+          "pos": "2",
+          "name": "VELARDI EUGENIO",
+          "year": "1953",
+          "team": "Circolo Canottieri Aniene",
+          "timing": "25:25.50",
+          "score": "796,34"
+        },
+        {
+          "pos": "3",
+          "name": "MASSONI MAURIZIO",
+          "year": "1951",
+          "team": "Rari Nantes Saronno",
+          "timing": "26:45.30",
+          "score": "756,76"
+        },
+        {
+          "pos": "4",
+          "name": "SIGNORELLI ERCOLE",
+          "year": "1951",
+          "team": "GIS Milano ssd",
+          "timing": "34:24.30",
+          "score": "588,49"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M75",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BITTO ALESSANDRO ANTONIO",
+          "year": "1941",
+          "team": "Master Melzo Nuoto",
+          "timing": "33:04.40",
+          "score": "709,64"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M25",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "MOTTADELLI ANNA",
+          "year": "1992",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "10:43.20",
+          "score": "838,71"
+        },
+        {
+          "pos": "2",
+          "name": "Foschia Lucrezia",
+          "year": "1991",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "12:02.80",
+          "score": "746,35"
+        },
+        {
+          "pos": "3",
+          "name": "GARGIULO TIZIANA",
+          "year": "1990",
+          "team": "Canottieri Bissolati",
+          "timing": "12:42.30",
+          "score": "707,67"
+        },
+        {
+          "pos": "4",
+          "name": "BROCCOLINO SUSANNA MARIA MARGHE",
+          "year": "1991",
+          "team": "Master Melzo Nuoto",
+          "timing": "13:06.60",
+          "score": "685,81"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M30",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Fe' Eleonora",
+          "year": "1989",
+          "team": "Prosport Acqua ssd",
+          "timing": "10:31.00",
+          "score": "887,26"
+        },
+        {
+          "pos": "2",
+          "name": "GROPPI JESSICA",
+          "year": "1989",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "12:11.70",
+          "score": "765,15"
+        },
+        {
+          "pos": "3",
+          "name": "Sandrini Veronica Giulia Lilli",
+          "year": "1989",
+          "team": "Sporting Lodi ssd",
+          "timing": "12:45.00",
+          "score": "731,84"
+        },
+        {
+          "pos": "4",
+          "name": "Leoni Sara",
+          "year": "1985",
+          "team": "Prosport Acqua ssd",
+          "timing": "12:52.00",
+          "score": "725,21"
+        },
+        {
+          "pos": "5",
+          "name": "MAZZOLENI ELISA",
+          "year": "1987",
+          "team": "Canottieri Baldesio",
+          "timing": "13:53.90",
+          "score": "671,38"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M35",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CULUVARIS GLORIA TIFFANY",
+          "year": "1981",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "12:26.50",
+          "score": "752,61"
+        },
+        {
+          "pos": "2",
+          "name": "MAINARDI CHIARA",
+          "year": "1982",
+          "team": "Canottieri Bissolati",
+          "timing": "15:19.90",
+          "score": "610,74"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M40",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BORIO PATRIZIA",
+          "year": "1976",
+          "team": "Rari Nantes Saronno",
+          "timing": "10:27.40",
+          "score": "900,83"
+        },
+        {
+          "pos": "2",
+          "name": "BORRELLO CLIZIA",
+          "year": "1976",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "10:58.50",
+          "score": "858,28"
+        },
+        {
+          "pos": "3",
+          "name": "CICERI LARA",
+          "year": "1976",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "11:20.30",
+          "score": "830,78"
+        },
+        {
+          "pos": "4",
+          "name": "CAPRA ILENIA",
+          "year": "1977",
+          "team": "Rari Nantes Saronno",
+          "timing": "13:35.70",
+          "score": "692,88"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M45",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "ROBBIATI ALESSANDRA",
+          "year": "1973",
+          "team": "Rari Nantes Legnano",
+          "timing": "12:00.70",
+          "score": "805,02"
+        },
+        {
+          "pos": "2",
+          "name": "ROSSI CRISTIANA",
+          "year": "1972",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "12:36.90",
+          "score": "766,52"
+        },
+        {
+          "pos": "3",
+          "name": "Padovani Sonia",
+          "year": "1973",
+          "team": "Forum ssd - Assago",
+          "timing": "12:47.40",
+          "score": "756,03"
+        },
+        {
+          "pos": "4",
+          "name": "COLAIANNI SILVIA",
+          "year": "1973",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "14:28.10",
+          "score": "668,33"
+        },
+        {
+          "pos": "5",
+          "name": "Capra Ivana",
+          "year": "1974",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "15:19.50",
+          "score": "630,97"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M50",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "OUSPENKINA LARISSA",
+          "year": "1967",
+          "team": "Canottieri Baldesio",
+          "timing": "11:31.20",
+          "score": "861,17"
+        },
+        {
+          "pos": "2",
+          "name": "CORIO LUCILLA",
+          "year": "1966",
+          "team": "Rari Nantes Saronno",
+          "timing": "11:38.10",
+          "score": "852,66"
+        },
+        {
+          "pos": "3",
+          "name": "ALESSANDRINI RAFFAELA",
+          "year": "1965",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "11:56.20",
+          "score": "831,11"
+        },
+        {
+          "pos": "4",
+          "name": "VERZENI MARIA LUISA",
+          "year": "1967",
+          "team": "Libertas Merate Due asd",
+          "timing": "13:08.00",
+          "score": "755,38"
+        },
+        {
+          "pos": "5",
+          "name": "SFREDDO LORENA",
+          "year": "1966",
+          "team": "Master Melzo Nuoto",
+          "timing": "13:23.90",
+          "score": "740,44"
+        },
+        {
+          "pos": "6",
+          "name": "Barletta Giovanna",
+          "year": "1965",
+          "team": "Prosport Acqua ssd",
+          "timing": "13:29.80",
+          "score": "735,05"
+        },
+        {
+          "pos": "7",
+          "name": "BACCHI VALERIA",
+          "year": "1969",
+          "team": "Rari Nantes Saronno",
+          "timing": "14:39.80",
+          "score": "676,56"
+        },
+        {
+          "pos": "8",
+          "name": "CONTI MARIA PAOLA",
+          "year": "1965",
+          "team": "Verolanuoto",
+          "timing": "14:52.80",
+          "score": "666,71"
+        },
+        {
+          "pos": "9",
+          "name": "ILLARIO BARBARA",
+          "year": "1966",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "17:01.00",
+          "score": "583,00"
+        },
+        {
+          "pos": "10",
+          "name": "ZANGA DANIELA",
+          "year": "1967",
+          "team": "Bergamo Nuoto",
+          "timing": "17:05.70",
+          "score": "580,33"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M55",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "ROVIDA MARIA CRISTINA",
+          "year": "1960",
+          "team": "Master Melzo Nuoto",
+          "timing": "13:12.40",
+          "score": "777,46"
+        },
+        {
+          "pos": "2",
+          "name": "D'alberti Pieranna",
+          "year": "1964",
+          "team": "Forum ssd - Assago",
+          "timing": "14:11.70",
+          "score": "723,33"
+        },
+        {
+          "pos": "3",
+          "name": "PREVITALI ORNELLA",
+          "year": "1960",
+          "team": "Libertas Merate Due asd",
+          "timing": "14:53.70",
+          "score": "689,34"
+        },
+        {
+          "pos": "4",
+          "name": "BALZARETTI CRISTINA",
+          "year": "1963",
+          "team": "Nuoto Club Seregno",
+          "timing": "16:48.90",
+          "score": "610,63"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M60",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Storace Stefania Anna",
+          "year": "1958",
+          "team": "Prosport Acqua ssd",
+          "timing": "15:45.80",
+          "score": "702,89"
+        },
+        {
+          "pos": "2",
+          "name": "BARALDO LILIANA",
+          "year": "1959",
+          "team": "Rari Nantes Legnano",
+          "timing": "15:48.30",
+          "score": "701,03"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M65",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CAPRIOLI CRISTINA",
+          "year": "1953",
+          "team": "Rari Nantes Gerbido",
+          "timing": "15:47.50",
+          "score": "755,37"
+        },
+        {
+          "pos": "2",
+          "name": "REBOLINI ANTONIETTA",
+          "year": "1951",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "18:52.40",
+          "score": "632,03"
+        }
+      ]
+    },
+    {
+      "title": "800 Stile Libero - M70",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "ENDRIZZI UMBERTA",
+          "year": "1948",
+          "team": "Rari Nantes Trento",
+          "timing": "19:46.40",
+          "score": "653,26"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M25",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "MOTTADELLI ANNA",
+          "year": "1992",
+          "team": "Nord Padania Nuoto - Vare",
+          "timing": "20:39.80",
+          "score": "845,29"
+        },
+        {
+          "pos": "2",
+          "name": "Foschia Lucrezia",
+          "year": "1991",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "22:44.60",
+          "score": "767,98"
+        },
+        {
+          "pos": "3",
+          "name": "GARGIULO TIZIANA",
+          "year": "1990",
+          "team": "Canottieri Bissolati",
+          "timing": "24:20.20",
+          "score": "717,70"
+        },
+        {
+          "pos": "4",
+          "name": "BROCCOLINO SUSANNA MARIA MARGHE",
+          "year": "1991",
+          "team": "Master Melzo Nuoto",
+          "timing": "24:49.70",
+          "score": "703,49"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M30",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Fe' Eleonora",
+          "year": "1989",
+          "team": "Prosport Acqua ssd",
+          "timing": "20:33.00",
+          "score": "865,29"
+        },
+        {
+          "pos": "2",
+          "name": "GROPPI JESSICA",
+          "year": "1989",
+          "team": "Sky Line Nuoto - C.puster",
+          "timing": "23:21.20",
+          "score": "761,42"
+        },
+        {
+          "pos": "3",
+          "name": "Sandrini Veronica Giulia Lilli",
+          "year": "1989",
+          "team": "Sporting Lodi ssd",
+          "timing": "23:53.40",
+          "score": "744,31"
+        },
+        {
+          "pos": "4",
+          "name": "Leoni Sara",
+          "year": "1985",
+          "team": "Prosport Acqua ssd",
+          "timing": "24:26.00",
+          "score": "727,76"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M35",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CULUVARIS GLORIA TIFFANY",
+          "year": "1981",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "23:42.70",
+          "score": "759,40"
+        },
+        {
+          "pos": "2",
+          "name": "FAZZI CLAUDIA",
+          "year": "1980",
+          "team": "Cilo ssd - Milano",
+          "timing": "27:12.20",
+          "score": "661,93"
+        },
+        {
+          "pos": "3",
+          "name": "MAINARDI CHIARA",
+          "year": "1982",
+          "team": "Canottieri Bissolati",
+          "timing": "28:20.60",
+          "score": "635,31"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M40",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "BORIO PATRIZIA",
+          "year": "1976",
+          "team": "Rari Nantes Saronno",
+          "timing": "20:17.00",
+          "score": "897,94"
+        },
+        {
+          "pos": "2",
+          "name": "BORRELLO CLIZIA",
+          "year": "1976",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "21:06.30",
+          "score": "862,98"
+        },
+        {
+          "pos": "3",
+          "name": "Fasolini Diana",
+          "year": "1977",
+          "team": "Prosport Acqua ssd",
+          "timing": "23:01.70",
+          "score": "790,90"
+        },
+        {
+          "pos": "4",
+          "name": "CAPRA ILENIA",
+          "year": "1977",
+          "team": "Rari Nantes Saronno",
+          "timing": "26:48.90",
+          "score": "679,22"
+        },
+        {
+          "pos": "5",
+          "name": "DERIU FRANCESCA",
+          "year": "1977",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "28:25.10",
+          "score": "640,89"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M45",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "LOSACCO ANNALISA",
+          "year": "1972",
+          "team": "Canottieri Baldesio",
+          "timing": "23:37.50",
+          "score": "793,89"
+        },
+        {
+          "pos": "2",
+          "name": "ROSSI CRISTIANA",
+          "year": "1972",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "23:44.20",
+          "score": "790,16"
+        },
+        {
+          "pos": "3",
+          "name": "Padovani Sonia",
+          "year": "1973",
+          "team": "Forum ssd - Assago",
+          "timing": "23:59.60",
+          "score": "781,70"
+        },
+        {
+          "pos": "4",
+          "name": "COLAIANNI SILVIA",
+          "year": "1973",
+          "team": "Genova Nuoto My Sport ssd",
+          "timing": "27:27.30",
+          "score": "683,14"
+        },
+        {
+          "pos": "5",
+          "name": "Capra Ivana",
+          "year": "1974",
+          "team": "Gonzaga Sport Club ssd",
+          "timing": "29:34.80",
+          "score": "634,07"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M50",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CORIO LUCILLA",
+          "year": "1966",
+          "team": "Rari Nantes Saronno",
+          "timing": "22:05.10",
+          "score": "866,24"
+        },
+        {
+          "pos": "2",
+          "name": "OUSPENKINA LARISSA",
+          "year": "1967",
+          "team": "Canottieri Baldesio",
+          "timing": "22:15.20",
+          "score": "859,68"
+        },
+        {
+          "pos": "3",
+          "name": "ALESSANDRINI RAFFAELA",
+          "year": "1965",
+          "team": "Nuoto Master Brescia asd",
+          "timing": "23:08.60",
+          "score": "826,62"
+        },
+        {
+          "pos": "4",
+          "name": "GANDELLINI MIRELLA",
+          "year": "1967",
+          "team": "Cilo ssd - Milano",
+          "timing": "23:59.30",
+          "score": "797,51"
+        },
+        {
+          "pos": "5",
+          "name": "YAMAMOTO YUMIKO",
+          "year": "1965",
+          "team": "Bergamo Swim Team",
+          "timing": "24:09.90",
+          "score": "791,68"
+        },
+        {
+          "pos": "6",
+          "name": "VERZENI MARIA LUISA",
+          "year": "1967",
+          "team": "Libertas Merate Due asd",
+          "timing": "25:04.20",
+          "score": "763,10"
+        },
+        {
+          "pos": "7",
+          "name": "Barletta Giovanna",
+          "year": "1965",
+          "team": "Prosport Acqua ssd",
+          "timing": "25:18.80",
+          "score": "755,76"
+        },
+        {
+          "pos": "8",
+          "name": "SFREDDO LORENA",
+          "year": "1966",
+          "team": "Master Melzo Nuoto",
+          "timing": "25:54.70",
+          "score": "738,31"
+        },
+        {
+          "pos": "9",
+          "name": "BACCHI VALERIA",
+          "year": "1969",
+          "team": "Rari Nantes Saronno",
+          "timing": "28:46.50",
+          "score": "664,84"
+        },
+        {
+          "pos": "10",
+          "name": "ILLARIO BARBARA",
+          "year": "1966",
+          "team": "ASA asd - Cinisello Balsa",
+          "timing": "32:09.40",
+          "score": "594,93"
+        },
+        {
+          "pos": "11",
+          "name": "ZANGA DANIELA",
+          "year": "1967",
+          "team": "Bergamo Nuoto",
+          "timing": "32:38.90",
+          "score": "585,97"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M55",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "ROVIDA MARIA CRISTINA",
+          "year": "1960",
+          "team": "Master Melzo Nuoto",
+          "timing": "25:29.60",
+          "score": "770,72"
+        },
+        {
+          "pos": "2",
+          "name": "VANERIO SIMONA",
+          "year": "1964",
+          "team": "Natatio Master Team asd",
+          "timing": "26:48.50",
+          "score": "732,91"
+        },
+        {
+          "pos": "3",
+          "name": "D'alberti Pieranna",
+          "year": "1964",
+          "team": "Forum ssd - Assago",
+          "timing": "27:13.60",
+          "score": "721,65"
+        },
+        {
+          "pos": "4",
+          "name": "PREVITALI ORNELLA",
+          "year": "1960",
+          "team": "Libertas Merate Due asd",
+          "timing": "28:17.80",
+          "score": "694,36"
+        },
+        {
+          "pos": "5",
+          "name": "BALZARETTI CRISTINA",
+          "year": "1963",
+          "team": "Nuoto Club Seregno",
+          "timing": "32:01.30",
+          "score": "613,59"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M60",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "Storace Stefania Anna",
+          "year": "1958",
+          "team": "Prosport Acqua ssd",
+          "timing": "29:39.70",
+          "score": "716,82"
+        },
+        {
+          "pos": "2",
+          "name": "GALLINA ALESSANDRA",
+          "year": "1959",
+          "team": "CSS Verona",
+          "timing": "31:42.70",
+          "score": "670,48"
+        }
+      ]
+    },
+    {
+      "title": "1500 Stile Libero - M65",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "CAPRIOLI CRISTINA",
+          "year": "1953",
+          "team": "Rari Nantes Gerbido",
+          "timing": "30:07.50",
+          "score": "771,85"
+        },
+        {
+          "pos": "2",
+          "name": "REBOLINI ANTONIETTA",
+          "year": "1951",
+          "team": "B.Fit Legnano Nuoto",
+          "timing": "36:13.10",
+          "score": "642,00"
+        }
+      ]
+    }
+  ]
+}
