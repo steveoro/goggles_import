@@ -85,7 +85,12 @@ puppeteer.launch({
     for (var currURL of arrayOfURLs) {
         console.log(`\r\n\r\nProcessing ${currURL.name}...`);
         const url = currURL.url;
-        await processURL( url, browser );
+        if (url == '') {
+          console.log(`URL is empty. Meeting is probably cancelled or not yet defined. Skipping...`);
+        }
+        else {
+          await processURL( url, browser );
+        }
     }
 
     // Let's close the browser
