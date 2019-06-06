@@ -1,5 +1,10 @@
 /*
-  Install:
+  When using Yarn from the root of the parent Rails application, everything
+  should be already ok after a simple 'rails yarn:install'.
+
+  For a manual & standalone install (when using npn, the NodeJS-Package-manager
+  as the only package manager):
+
    > sudo apt-get install nodejs
    > npm install node-fetch --save
    > npm install csv-parser --save
@@ -9,7 +14,6 @@
    > npm install util --save
    > npm install puppeteer --save
    > npm install cheerio --save
-
 
   Run:
     > node fin-crawler.js

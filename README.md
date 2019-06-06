@@ -12,28 +12,21 @@ Official framework Wiki, [here](https://github.com/steveoro/goggles_admin/wiki)
 
 
 
-### Dependencies:
+### Dependencies & setup:
 
 - [Goggles Core, for data structures](https://github.com/steveoro/goggles_core)
 - [Kiba, for ETL](https://github.com/thbar/kiba)
-- NodeJS + other packages for the data crawler tool (see below)
+- Yarn, as main ES6 package manager, for installation see [Yarn package manager](https://yarnpkg.com/lang/en/docs/install/#debian-stable)
+- NodeJS + other packages for the data crawler tool: just run a `rails yarn:install` and everything should be taken care of (after Yarn has been installed).
 
 
 
 ### Internal custom Crawler:
 
-Basic dependencies installation:
+Basic dependencies installation (from Rails app root):
 
 ```bash
-   > sudo apt-get install nodejs
-   > npm install node-fetch --save
-   > npm install csv-parser --save
-   > npm install fs --save
-   > npm install get-stream --save
-   > npm install jquery --save
-   > npm install util --save
-   > npm install puppeteer --save
-   > npm install cheerio --save
+   > rails yarn:install
 ```
 
 Run (for example, the FIN crawler):
@@ -43,8 +36,10 @@ Run (for example, the FIN crawler):
    > node fin-crawler.js
 ```
 
-This will need a `list.csv` file containing the (editable) list of meeting URLs to be crawled.
+This will expect a `list.csv` file containing the (editable) list of meeting URLs to be crawled.
+
 The crawler will start looping on all URLs found in the `.csv` file, extracting data and will produce a `.json` file for each meeting result page crawled.
+
 Each JSON file will be created in the current running directory (`crawler`) and have as its filename a semi-normalized meeting name with a prefixed unique code.
 
 Data fields for the `list.csv` input file (comma separated):
@@ -61,4 +56,3 @@ https://www.federnuoto.it/home/master/circuito-supermaster/riepilogo-eventi.html
 ```
 
 The data-crawl resulting files should be moved by hand to the `data.new` folder before being processed by Kiba.
-

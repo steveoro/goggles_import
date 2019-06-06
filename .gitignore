@@ -37,6 +37,7 @@ node_modules/
 config/initializers/secret_token.rb
 # Ignore master key for decrypting credentials and more.
 config/master.key
+config/database.yml
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
@@ -57,4 +58,3 @@ config/master.key
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
-
