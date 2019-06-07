@@ -1,12 +1,12 @@
-=begin
+# frozen_string_literal: true
 
-= Version module
-
-  - version:  6.004
-  - author:   Steve A.
-
-  Semantic Versioning implementation.
-=end
+#
+# = Version module
+#
+#   - version:  6.004
+#   - author:   Steve A.
+#
+#   Semantic Versioning implementation.
 module Version
   #--
   # [Steve, 20080414]
@@ -25,14 +25,14 @@ module Version
   MINOR   = '400'
 
   # Current build version.
-  BUILD   = '20190606'
+  BUILD   = '20190607'
 
   # Full versioning for the current release.
   FULL    = "#{MAJOR}.#{MINOR}.#{BUILD} (#{CORE})"
 
   # Compact versioning label for the current release.
-  COMPACT = "#{MAJOR.gsub('.','')}#{MINOR}"
+  COMPACT = "#{MAJOR.gsub('.', '')}#{MINOR}"
 
   # Current internal DB version (independent from migrations and framework release)
-  DB      = "1.28.00"
+  DB      = '1.28.00'
 end

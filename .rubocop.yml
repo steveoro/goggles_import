@@ -1,0 +1,105 @@
+require: rubocop-rails
+inherit_from: .rubocop_todo.yml
+
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines
+  Exclude:
+    - 'config/*'
+    - 'Guardfile'
+    - 'test/*'
+    - 'specs/*'
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: space, no_space
+Layout/SpaceInsideParens:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 44
+
+# Configuration parameters: CountComments, ExcludedMethods.
+# ExcludedMethods: refine
+Metrics/BlockLength:
+  Max: 30
+
+# Cop supports --auto-correct.
+# Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 130
+
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/MethodLength:
+  Max: 17
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AutoCorrect, EnforcedStyle.
+# SupportedStyles: nested, compact
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+    - 'app/helpers/application_helper.rb'
+    - 'app/mailers/application_mailer.rb'
+    - 'app/models/application_record.rb'
+    - 'config/application.rb'
+
+# Cop supports --auto-correct.
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/rails'
+    - 'bin/rake'
+    - 'spec/rails_helper.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: literals, strict
+Style/MutableConstant:
+  EnforcedStyle: strict
+
+# Cop supports --auto-correct.
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+# Cop supports --auto-correct.
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+# Cop supports --auto-correct.
+# Configuration parameters: MinSize.
+# SupportedStyles: percent, brackets
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: slashes, arguments
+Rails/FilePath:
+  Exclude:
+    - 'lib/tasks/cucumber.rake'

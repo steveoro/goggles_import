@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Guardfile - More info at https://github.com/guard/guard#readme
 
 ## Uncomment and set this to only include directories you want to watch
@@ -14,7 +16,6 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-
 # Watch the bundle for updates:
 guard :bundler do
   watch('Gemfile')
@@ -28,12 +29,11 @@ guard :spring, bundler: true do
   watch(%r{^spec/factory.rb})
 end
 
-
 rspec_options = {
-  cmd: "spring rspec",
+  cmd: 'spring rspec',
   # Exclude performance tests with fail-fast:
   # cmd_additional_args: "--color -f progress --order rand --fail-fast -t ~type:performance",
-  cmd_additional_args: " --color -f progress --order rand -t ~type:performance",
+  cmd_additional_args: ' --color -f progress --order rand -t ~type:performance',
   all_after_pass: false,
   failed_mode: :focus
 }
@@ -48,7 +48,7 @@ rspec_options = {
 
 # Watch everything RSpec-related and run it:
 guard :rspec, rspec_options do
-  require "guard/rspec/dsl"
+  require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
 
   # RSpec files:
@@ -60,7 +60,7 @@ guard :rspec, rspec_options do
   ruby = dsl.ruby
   dsl.watch_spec_files_for(ruby.lib_files)
   # Rails files:
-  rails = dsl.rails(view_extensions: %w(erb haml slim))
+  rails = dsl.rails(view_extensions: %w[erb haml slim])
   dsl.watch_spec_files_for(rails.app_files)
   dsl.watch_spec_files_for(rails.views)
 
@@ -73,7 +73,7 @@ guard :rspec, rspec_options do
   # Watch factories and launch the corresponding model specs:
   watch( %r{^spec/factories/(.+)\.rb$} ) do |m|
     Dir[
-      "spec/models/#{ m[1] }*spec.rb"
+      "spec/models/#{m[1]}*spec.rb"
     ]
   end
   # Rails config changes:
@@ -87,44 +87,46 @@ guard :rspec, rspec_options do
   # watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
 end
 
-
 rubocop_options = {
-  cmd: "spring rubocop",
+  cmd: 'spring rubocop',
   # With fuubar, offenses and warnings tot.:
   # cli: "-R -E -P -f fu -f o -f w"
-  cli: "-R -E -P"
+  cli: '-E -P'
 }
 
 # Watch Ruby files for changes and run RuboCop:
 # [See https://github.com/yujinakayama/guard-rubocop for all options]
 guard :rubocop, rubocop_options do
-  watch(%r{.+\.rb$})
+  watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
 end
 
+# [Steve A., 20190607] Unless using DatabaseCleaner for clearing database in between
+# Cucumber specs, Feature testing may result difficult due to this app having a
+# persistent DB with Capybara being in a different thread.
+# => Use new Rails' System Tests to actually test features!
 
-cucumber_options = {
-  cmd: "spring cucumber",
-  cmd_additional_args: "--profile guard",
-  notification: false, all_after_pass: false, all_on_start: false
-}
+# cucumber_options = {
+#   cmd: 'spring cucumber',
+#   cmd_additional_args: '--profile guard',
+#   notification: false, all_after_pass: false, all_on_start: false
+# }
 
 # Watch everything Cucumber-related and run it:
-guard :cucumber, cucumber_options do
-  # Watch for feature updates:
-  watch( %r{^features\/(.+/)?(.+)\.feature$} ) do |m|
-    puts "'#{ m[0] }' modified..."
-    m[0]
-  end
-  # Watch for support file updates (will trigger a re-run of all features):
-  watch( %r{^features\/support/.+$} ) do |m|
-    puts "'#{ m[0] }' support file modified..."
-    Dir[File.join( "features\/\*\/*.feature" )]
-  end
-  # Watch for step definition updates (will trigger a re-run of a whole feature):
-  watch( %r{^features\/step_definitions\/(.+)_steps\.rb$} ) do |m|
-    puts "'#{ m[1] }' steps file modified..."
-    Dir[File.join( "features\/\*\/*#{m[1]}*.feature" )]
-  end
-end
-
+# guard :cucumber, cucumber_options do
+#   # Watch for feature updates:
+#   watch( %r{^features\/(.+/)?(.+)\.feature$} ) do |m|
+#     puts "'#{m[0]}' modified..."
+#     m[0]
+#   end
+#   # Watch for support file updates (will trigger a re-run of all features):
+#   watch( %r{^features\/support/.+$} ) do |m|
+#     puts "'#{m[0]}' support file modified..."
+#     Dir[File.join( "features\/\*\/*.feature" )]
+#   end
+#   # Watch for step definition updates (will trigger a re-run of a whole feature):
+#   watch( %r{^features\/step_definitions\/(.+)_steps\.rb$} ) do |m|
+#     puts "'#{m[1]}' steps file modified..."
+#     Dir[File.join( "features\/\*\/*#{m[1]}*.feature" )]
+#   end
+# end
