@@ -31,21 +31,33 @@ Layout/SpaceInsideParens:
 
 Metrics/AbcSize:
   Max: 44
+  Exclude:
+    - 'config/*'
+    - 'db/*'
 
 # Configuration parameters: CountComments, ExcludedMethods.
 # ExcludedMethods: refine
 Metrics/BlockLength:
-  Max: 30
+  Max: 50
+  Exclude:
+    - 'config/*'
+    - 'db/*'
 
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 130
+  Exclude:
+    - 'config/*'
+    - 'db/*'
 
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/MethodLength:
-  Max: 17
+  Max: 25
+  Exclude:
+    - 'config/*'
+    - 'db/*'
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -73,8 +85,7 @@ Style/ExpandPathArguments:
 
 Style/MixinUsage:
   Exclude:
-    - 'bin/setup'
-    - 'bin/update'
+    - 'bin/*'
 
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.

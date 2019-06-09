@@ -91,7 +91,8 @@ rubocop_options = {
   cmd: 'spring rubocop',
   # With fuubar, offenses and warnings tot.:
   # cli: "-R -E -P -f fu -f o -f w"
-  cli: '-E -P'
+  # With rails cops & autocorrect:
+  cli: '--require rubocop-rails'
 }
 
 # Watch Ruby files for changes and run RuboCop:

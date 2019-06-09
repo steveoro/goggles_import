@@ -8,6 +8,14 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'devise' # note: require 'devise' after require 'rspec/rails' (this allows to use devise test helpers)
+require 'factory_bot_rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+
+# Add factories directly from core engine:
+FactoryBot.definition_file_paths << "#{GogglesCore::Engine.root}/spec/factories"
+FactoryBot.reload
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -23,6 +31,10 @@ require 'rspec/rails'
 # require only the support files necessary.
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+
+# Add support files directly from Core engine and then from current app:
+Dir[GogglesCore::Engine.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -60,4 +72,17 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # ============================================================================
+  # Bullet gem global toggle:
+  # ============================================================================
+  if Bullet.enable?
+    config.before(:each) do
+      Bullet.start_request
+    end
+    config.after(:each) do
+      Bullet.perform_out_of_channel_notifications if Bullet.notification?
+      Bullet.end_request
+    end
+  end
 end
