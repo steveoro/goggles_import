@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Style/FrozenStringLiteralComment
 
 require 'rails_helper'
 require 'di_session_manager'
@@ -20,8 +20,10 @@ describe DISessionManager, type: :strategy do
 
     context 'with all the required and valid column values,' do
       it 'returns the new instance' do
+        season_id = Season.limit(100).pluck(:id).sample
+        expect( season_id ).to be > 0
         count_before = DataImportSession.count
-        result = DISessionManager.create!(file_name: '', season_id: Season.limit(100).pluck(:id).sample)
+        result = DISessionManager.create!(file_name: '', season_id: season_id)
         expect( result ).to be_a( DataImportSession )
         expect( DataImportSession.count ).to eq( count_before + 1 )
       end
@@ -44,3 +46,4 @@ describe DISessionManager, type: :strategy do
   #-- -------------------------------------------------------------------------
   #++
 end
+# rubocop:enable Style/FrozenStringLiteralComment

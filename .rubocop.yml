@@ -91,7 +91,7 @@ Style/MixinUsage:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: literals, strict
 Style/MutableConstant:
-  EnforcedStyle: strict
+  EnforcedStyle: literals
 
 # Cop supports --auto-correct.
 Style/RedundantBegin:

@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Style/FrozenStringLiteralComment
 
 #
 # = DISessionManager
@@ -32,10 +32,13 @@ class DISessionManager
       data_import_season_id: nil,
       user_id: options[:user_id] || 1
     )
+    # DEBUG
+    # puts "\r\n#{result.inspect}"
     result.save!
+    result
   rescue StandardError
     # DEBUG
-    puts ValidationErrorTools.recursive_error_for( result )
+    Rails.logger.error(ValidationErrorTools.recursive_error_for( result ))
     raise ActiveRecord::RecordInvalid
   end
   #-- --------------------------------------------------------------------------
@@ -71,3 +74,4 @@ class DISessionManager
   #++
 
 end
+# rubocop:enable Style/FrozenStringLiteralComment
