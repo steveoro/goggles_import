@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 #
-# = ApplicationHelper
+# = HomeHelper
 #
 # - Goggles framework vers.:  6.404
 # - author: Steve A.
 #
-# Base Helper class for all controller helpers.
+# Helper class for HomeController.
 #
-module ApplicationHelper
+module HomeHelper
 end

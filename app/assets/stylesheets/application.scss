@@ -1,0 +1,6 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+// Additional custom stylesheets:
+@import "home.scss";
+@import "fin.scss"

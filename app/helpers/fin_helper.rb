@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 #
-# = ApplicationHelper
+# = FinHelper
 #
 # - Goggles framework vers.:  6.404
 # - author: Steve A.
 #
-# Base Helper class for all controller helpers.
+# Helper class for FinController.
 #
-module ApplicationHelper
+module FinHelper
 end

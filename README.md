@@ -26,14 +26,14 @@ Official framework Wiki, [here](https://github.com/steveoro/goggles_admin/wiki)
 Basic dependencies installation (from Rails app root):
 
 ```bash
-   > rails yarn:install
+> rails yarn:install
 ```
 
 Run (for example, the FIN crawler):
 
 ```bash
-   > cd crawler
-   > node fin-crawler.js
+> cd crawler
+> node fin-crawler.js
 ```
 
 This will expect a `list.csv` file containing the (editable) list of meeting URLs to be crawled.
