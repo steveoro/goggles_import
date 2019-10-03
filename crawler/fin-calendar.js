@@ -56,6 +56,9 @@ function pageFunction(context) {
 
 /*
   pre-2018 version:
+
+  Supermaster_FIN_current_season_meetings
+  http://www.federnuoto.it/discipline/master/circuito-supermaster.html
 */
 function pageFunction(context) {
     // called on every page the crawler visits, use it to extract data from it
@@ -89,6 +92,93 @@ function pageFunction(context) {
         });
     });
 
+    return result;
+}
+//..............................................................................
+
+
+/*
+  pre-2018 version:
+
+  Supermaster_FIN_season_172_calendar
+  http://www.federnuoto.it/discipline/master/circuito-supermaster/stagione-2017-2018.html
+*/
+function pageFunction(context) {
+    // called on every page the crawler visits, use it to extract data from it
+    var $ = context.jQuery;
+    var result = [];
+    var curr_year = '';
+    var curr_month = '';
+
+    $('table.calendario tr').each( function() {
+        if ( $(this).find('th').first().text() !== '' ) {
+            curr_year = $(this).find('th').first().text();
+        }
+        if ( $(this).find('th').last().text() !== '' ) {
+            curr_month = $(this).find('th').last().text();
+        }
+        var days = $(this).find('td').first().text();
+        var city = $(this).find('td:nth-child(3)').first().text();
+
+        $(this).find('a').each( function() {
+            var description = $(this).text();
+            var link = $(this).attr('href');
+            // Add each link to the result list:
+            result.push({
+                year: curr_year,
+                month: curr_month,
+                days: days,
+                city: city,
+                description : description,
+                link : link
+            });
+        });
+    });
+
+    return result;
+}
+//..............................................................................
+
+
+/*
+pre-2018 version:
+
+  Supermaster_FIN_download_meeting_results
+*/
+function pageFunction(context) {
+    // called on every page the crawler visits, use it to extract data from it
+    var $ = context.jQuery;
+
+    return document.getElementById('risultati-master').innerHTML;
+}
+//..............................................................................
+
+
+/*
+  pre-2018 version:
+
+  Vimercate_ASD_FIN_Meetings
+  - 2009: http://www.vimercatenuoto.org/rmaster09.htm
+  - 2010: http://www.vimercatenuoto.org/rmaster10.htm
+  - 2011: http://www.vimercatenuoto.org/rmaster11.htm
+  - 2012: http://www.vimercatenuoto.org/rmaster12.htm
+*/
+function pageFunction(context) {
+    // called on every page the crawler visits, use it to extract data from it
+    var $ = context.jQuery;
+    var result = [];
+
+    $('a').each( function() {
+        var description = $(this).text().trim();
+        var link = $(this).attr('href');
+        // Add each link to the result list if it's a result link:
+        if ( link.match( /master\/risultati/i ) ) {
+            result.push({
+                description : description,
+                link : link
+            });
+        }
+    });
     return result;
 }
 //..............................................................................
