@@ -22,17 +22,17 @@
   This needs a 'list.csv' file containing the (editable) list of meeting URLs to be crawled.
   Data fields for the input file (comma separated):
 
-    URL,date,isCancelled,name,place,meetingUrl,year
+    sourceURL,date,isCancelled,name,place,meetingUrl,year
 
   File sample (1 line required header + 1 data line):
+
 ----8<----
-URL,date,isCancelled,name,place,meetingUrl,year
+sourceURL,date,isCancelled,name,place,meetingUrl,year
 https://www.federnuoto.it/home/master/circuito-supermaster/riepilogo-eventi.html,21/10,,Distanze speciali Lombardia,Brescia,https://www.federnuoto.it/home/master/circuito-supermaster/eventi-circuito-supermaster.html#/risultati/134168:distanze-speciali-master-lombardia.html,"2018"
 ----8<----
 
- */
+*/
 
-//const Apify     = require('apify');    // (Not used in this version)
 const Csv       = require('csv-parser');
 const Fs        = require('fs');
 const GetStream = require('get-stream');
@@ -43,7 +43,8 @@ const fetch     = require('node-fetch');
 const puppeteer = require('puppeteer');
 const cheerio   = require('cheerio');
 
-
+// Function used to read the source file containing the URL list:
+// (built up either by hand or by the fin-calendar.js dedicated crawler)
 readCSVData = async (filePath) => {
   const parseStream = Csv({delimiter: ','});
   const data = await GetStream.array(Fs.createReadStream(filePath).pipe(parseStream));
@@ -55,31 +56,36 @@ readCSVData = async (filePath) => {
 };
 
 
-// LOW-LEVEL, PLAIN ES6 sample selection w/ current HTML format:
-// Click to show "Male":
-//    document.querySelectorAll("section#component div:nth-child(3) > ul > li:nth-child(1)")
-//    => $("section#component li:nth-child(1) > span").click()
-// Event titles:
-//    document.querySelectorAll("section#component div.active > div > h3")
-// All link nodes:
-//    all Male+Female => document.querySelectorAll(".categorie span.collegamento")
-//    ~ "section#component div.active > div > div:nth-child(2) > span"
+/*
+  LOW-LEVEL, PLAIN ES6 sample selection w/ current HTML format:
+  Click to show "Male":
+     document.querySelectorAll("section#component div:nth-child(3) > ul > li:nth-child(1)")
+     => $("section#component li:nth-child(1) > span").click()
+  Event titles:
+     document.querySelectorAll("section#component div.active > div > h3")
+  All link nodes:
+     all Male+Female => document.querySelectorAll(".categorie span.collegamento")
+     ~ "section#component div.active > div > div:nth-child(2) > span"
+*/
 
 
 // Ignore TLS self-signed certificates & any unauth. certs: (Not secure, but who cares for crawling...)
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 
-puppeteer.launch({
-  headless: true,
-  args: [
-    '--ignore-certificate-errors', '--enable-feature=NetworkService',
-    '--no-sandbox', '--disable-setuid-sandbox'
-  ]}).then(async browser => {
+puppeteer
+  .launch({
+    headless: true,
+    args: [
+      '--ignore-certificate-errors', '--enable-feature=NetworkService',
+      '--no-sandbox', '--disable-setuid-sandbox'
+    ]
+  })
+  .then( async browser => {
     // List of URL to process:
     const CSV_FILE = 'list.csv';
     const arrayOfURLs = await readCSVData( CSV_FILE );
-    console.log("\r\nParsed list of URLs:");
+    console.log("\r\n*** FIN Results Crawler ***\r\n\r\nParsed list of URLs:");
     console.log( Util.inspect(arrayOfURLs, false, null, true) );
 
     for (var currURL of arrayOfURLs) {
@@ -92,16 +98,15 @@ puppeteer.launch({
           await processURL( url, browser );
         }
     }
-
     // Let's close the browser
     await browser.close();
     process.exit();
-}).catch(function(error) {
+  })
+  .catch(function(error) {
     console.error('ERROR:');
     console.error( error.toString() );
     process.exit();
-});
-
+  });
 //-----------------------------------------------------------------------------
 
 
@@ -111,78 +116,77 @@ puppeteer.launch({
  * @param browser a Puppeteer instance
  */
 async function processURL( url, browser ) {
-    const page = await browser.newPage();
-    await page.setViewport({width: 1024, height: 768})
-    await page.setUserAgent('Mozilla/5.0')
+  const page = await browser.newPage();
+  await page.setViewport({width: 1024, height: 768})
+  await page.setUserAgent('Mozilla/5.0')
 
-    console.log(`Browsing to ${url}...`);
-    await page.goto(url, {waitUntil: 'networkidle0'});
+  console.log(`Browsing to ${url}...`);
+  await page.goto(url, {waitUntil: 'networkidle0'});
 
-    // NOT NEEDED anymore (using Cheerio instead & jQuery(currentNode)):
-    //console.log('Injecting jQuery...');
-    //await page.addScriptTag({path: require.resolve('jquery')});
+  // NOT NEEDED anymore (using Cheerio instead & jQuery(currentNode)):
+  //console.log('Injecting jQuery...');
+  //await page.addScriptTag({path: require.resolve('jquery')});
 
-    console.log('Waiting for list of span-links...');
-    const totCount = await page.$$eval('.categorie span.collegamento', spans => spans.length);
-    console.log(`Found ${totCount} tot. node links.`);
-    console.log('Moving to page.evaluate()...');
+  console.log('Waiting for list of span-links...');
+  const totCount = await page.$$eval('.categorie span.collegamento', spans => spans.length);
+  console.log(`Found ${totCount} tot. node links.`);
+  console.log('Moving to page.evaluate()...');
 
-    const arrayOfParams = await page.evaluate(() => {
-        const spanLinkNodes = document.querySelectorAll(".categorie span.collegamento");
-        // Console doesn't work in this synch'ed funct:
-        //console.log(`Found ${spanLinkNodes.length} tot. node links.`);
-        //console.log( spanLinkNodes[0].innerHTML );
-        var data = [];
-        for(var i = 0; i < spanLinkNodes.length; i++) {
-            const node  = spanLinkNodes[i];
-            const params = jQuery(node).data('id').split(';');
-            // CURRENT LABELS for variable PARAMS:
-            // const labels = jQuery(node).data('value').split(';');
-            // => "solr[id_evento];solr[codice_gara];solr[sigla_categoria];solr[sesso]"
-            data.push({
-                'solr[id_settore]': 1,
-                'solr[id_tipologia_1]': 2,
-                'solr[corsi_passati]': 0,
-                'solr[id_evento]': params[0],
-                'solr[codice_gara]': params[1],
-                'solr[sigla_categoria]': params[2],
-                'solr[sesso]': params[3]
-            });
-        };
-        return data;
-    });
+  const arrayOfParams = await page.evaluate(() => {
+    const spanLinkNodes = document.querySelectorAll(".categorie span.collegamento");
+    // Console doesn't work in this synch'ed funct:
+    //console.log(`Found ${spanLinkNodes.length} tot. node links.`);
+    //console.log( spanLinkNodes[0].innerHTML );
+    var data = [];
+    for(var i = 0; i < spanLinkNodes.length; i++) {
+      const node  = spanLinkNodes[i];
+      const params = jQuery(node).data('id').split(';');
+      // CURRENT LABELS for variable PARAMS:
+      // const labels = jQuery(node).data('value').split(';');
+      // => "solr[id_evento];solr[codice_gara];solr[sigla_categoria];solr[sesso]"
+      data.push({
+        'solr[id_settore]': 1,
+        'solr[id_tipologia_1]': 2,
+        'solr[corsi_passati]': 0,
+        'solr[id_evento]': params[0],
+        'solr[codice_gara]': params[1],
+        'solr[sigla_categoria]': params[2],
+        'solr[sesso]': params[3]
+      });
+    };
+    return data;
+  });
 
-    // DEBUG:
-    //console.log("\r\n\r\n*** arrayOfParams: ***");
-    //console.log( Util.inspect(arrayOfParams, false, null, true) );
-    console.log(`Extracted (& prepared) a total of ${arrayOfParams.length} parametric AJAX calls...`);
+  // DEBUG:
+  //console.log("\r\n\r\n*** arrayOfParams: ***");
+  //console.log( Util.inspect(arrayOfParams, false, null, true) );
+  console.log(`Extracted (& prepared) a total of ${arrayOfParams.length} parametric AJAX calls...`);
 
-    const outFileName = getOutputFilenameFromURL( url ) + ".json";
-    const htmlContents = await page.content();
-    const result = await pageFunction( url, htmlContents, arrayOfParams );
+  const outFileName = getOutputFilenameFromURL( url ) + ".json";
+  const htmlContents = await page.content();
+  const result = await pageFunction( url, htmlContents, arrayOfParams );
 
-    // DEBUG:
-    //console.log("\r\n\r\n*** result: ***");
-    //console.log( Util.inspect(result, false, null, true) );
-    // DEBUG:
-    console.log(`Generating '${outFileName}'...`);
+  // DEBUG:
+  //console.log("\r\n\r\n*** result: ***");
+  //console.log( Util.inspect(result, false, null, true) );
+  // DEBUG:
+  console.log(`Generating '${outFileName}'...`);
 
-    // stringify JSON Object
-    var jsonContent = JSON.stringify( result );
+  // stringify JSON Object
+  var jsonContent = JSON.stringify( result );
 
-    // DEBUG
-    //console.log("\r\nJSON Content:\r\n\r\n--------------------------------------------------------------");
-    //console.log(jsonContent);
-    //console.log("--------------------------------------------------------------\r\n");
+  // DEBUG
+  //console.log("\r\nJSON Content:\r\n\r\n--------------------------------------------------------------");
+  //console.log(jsonContent);
+  //console.log("--------------------------------------------------------------\r\n");
 
-    Fs.writeFile(outFileName, jsonContent, 'utf8', function (err) {
-        if (err) {
-            console.log("An error occured while writing the JSON Object to the file.");
-            return console.log(err);
-        }
-
-        console.log("JSON file saved.");
-    });
+  Fs.writeFile(outFileName, jsonContent, 'utf8', function (err) {
+    if (err) {
+        console.log("An error occured while writing the JSON Object to the file.");
+        return console.log(err);
+    }
+    console.log("JSON file saved.");
+  });
 }
 //-------------------------------------------------------------------------------------
 
