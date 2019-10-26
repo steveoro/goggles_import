@@ -1,9 +1,22 @@
 /*
-  Executes the legacy crawler that retrieves current FIN season Meetings.
+  Executes the legacy crawler that retrieves the list of the current FIN season Meetings
+  and produces a CSV file with a line for each meeting.
 
   Run:
     > node fin-calendar.js
 
+
+  Resulting file sample (1 line required header + 1 data line):
+
+----8<----
+sourceURL,date,isCancelled,name,place,meetingUrl,year
+https://www.federnuoto.it/home/master/circuito-supermaster/riepilogo-eventi.html,21/10,,Distanze speciali Lombardia,Brescia,https://www.federnuoto.it/home/master/circuito-supermaster/eventi-circuito-supermaster.html#/risultati/134168:distanze-speciali-master-lombardia.html,"2018"
+----8<----
+
+  The resulting file output can be used as input for:
+
+  - fin-crawler.js => crawls each meetingUrl to build up a separate JSON file with the results from the meeting
+  - fin-calendar rake task => updates/recreates the current FIN calendar based on the contents of the source file
  */
 
 const Csv       = require('csv-parser');
@@ -16,169 +29,93 @@ const fetch     = require('node-fetch');
 const puppeteer = require('puppeteer');
 const cheerio   = require('cheerio');
 
+// Calendar source URL:
+// (this typically hasn't changed in years, but may be parametrized in future versions)
+const startURL  = "https://www.federnuoto.it/home/master/circuito-supermaster/riepilogo-eventi.html";
 
-// TODO Update this to use puppeteer:
+
+// Ignore TLS self-signed certificates & any unauth. certs: (Not secure, but who cares for crawling...)
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
+
+puppeteer
+  .launch({
+    headless: true,
+    args: [
+      '--ignore-certificate-errors', '--enable-feature=NetworkService',
+      '--no-sandbox', '--disable-setuid-sandbox'
+    ]
+  })
+  .then( async browser => {
+    console.log(`\r\n*** FIN Calendar Crawler ***\r\n\r\nProcessing ${startURL}...`);
+    await processPage( startURL, browser );
+    await browser.close();
+    process.exit();
+  })
+  .catch(function(error) {
+    console.error('ERROR:');
+    console.error( error.toString() );
+    process.exit();
+  });
+//-----------------------------------------------------------------------------
+
 
 /*
-  FIN2019-master-list
+ * Asynch pageFunction for retrieving the FIN calendar from the list of current events
+ * from the current season.
+ *
+ * Supports 2018+ FIN website styling.
+ *
+ * @param baseURL the browsed url (for serializing purposes)
+ * @param browser a Puppeteer instance
+ */
+async function processPage( baseURL, browser ) {
+  const page = await browser.newPage();
+  await page.setViewport({width: 1024, height: 768})
+  await page.setUserAgent('Mozilla/5.0')
 
-  Extract current meetings list (list of URL of results).
-  startURL: https://www.federnuoto.it/home/master/circuito-supermaster/riepilogo-eventi.html
-*/
-function pageFunction(context) {
-    // called on every page the crawler visits, use it to extract data from it
-    var $ = context.jQuery;
-    var result = [];
+  console.log(`Browsing to ${baseURL}...`);
+  await page.goto(baseURL, {waitUntil: 'networkidle0'});
 
-    $("table.records.ris-style").toArray().forEach(function(tableNode) {
-      var meetingYear = tableNode.caption.innerText;
-      // DEBUG:
-      // console.log(tableNode.caption.innerText);
+  console.log('Waiting for table nodes rendering...');
+  const totCount = await page.$$eval('table.records.ris-style', tableNodes => tableNodes.length);
+  console.log(`Found ${totCount} tot. nodes.`);
+  console.log('Moving to page.evaluate()...');
 
-      var tableRowNodes = $(tableNode).children('tbody').first().children('tr').toArray();
-      tableRowNodes.forEach(function(tableRowNode) {
-        var urlNode = $(tableRowNode).children().last().children()[0];
-        result.push({
-          year: meetingYear,
-          date: $(tableRowNode).children().toArray()[0].innerText,
-          name: $(tableRowNode).children().toArray()[1].innerText,
-          place: $(tableRowNode).children().toArray()[2].innerText,
-          meetingUrl: (urlNode === undefined) ? "" : urlNode.href,
-          isCancelled: $(tableRowNode).children().toArray()[3].innerText
+  const csvContents = await page.evaluate(() => {
+    const tableNodes = document.querySelectorAll("table.records.ris-style");
+    const url = document.location;
+    var csvText = "startURL,date,isCancelled,name,place,meetingUrl,year\r\n";
+    for(var i = 0; i < tableNodes.length; i++) {
+        const tableNode = tableNodes[i];
+        const meetingYear = tableNode.caption.innerText;
+        const tableRowNodes = $(tableNode).children('tbody').first().children('tr').toArray();
+        tableRowNodes.forEach(function(tableRowNode) {
+          const urlNode = $(tableRowNode).children().last().children()[0];
+          const date    = $(tableRowNode).children().toArray()[0].innerText;
+          const name    = $(tableRowNode).children().toArray()[1].innerText;
+          const place   = $(tableRowNode).children().toArray()[2].innerText;
+          const meetingUrl  = (urlNode === undefined) ? "" : urlNode.href;
+          const isCancelled = $(tableRowNode).children().toArray()[3].innerText;
+          csvText = csvText.concat(`${url},${date},${isCancelled},${name},${place},${meetingUrl},${meetingYear}\r\n`);
         });
-      });
-    });
+    };
+    return csvText;
+  });
+  console.log(`Events table parsing done.`);
+  // DEBUG
+  // console.log("\r\nCSV Contents:\r\n\r\n--------------------------------------------------------------");
+  // console.log(csvContents);
+  // console.log("--------------------------------------------------------------\r\n");
 
-    return result;
+  const outFileName = (new Date()).toISOString().split('T')[0] + "-FIN-full_meeting_URLs.csv";
+  console.log(`Generating '${outFileName}'...`);
+  Fs.writeFile(outFileName, csvContents, 'utf8', function (err) {
+    if (err) {
+      console.log("An error occured while writing the CSV text to the file.");
+      return console.log(err);
+    }
+    console.log("CSV file saved.\r\nDone.");
+  });
 }
-//..............................................................................
-
-
-/*
-  pre-2018 version:
-
-  Supermaster_FIN_current_season_meetings
-  http://www.federnuoto.it/discipline/master/circuito-supermaster.html
-*/
-function pageFunction(context) {
-    // called on every page the crawler visits, use it to extract data from it
-    var $ = context.jQuery;
-    var result = [];
-    var curr_year = '';
-    var curr_month = '';
-
-    $('table.calendario tr').each( function() {
-        if ( $(this).find('th').first().text() !== '' ) {
-            curr_year = $(this).find('th').first().text();
-        }
-        if ( $(this).find('th').last().text() !== '' ) {
-            curr_month = $(this).find('th').last().text();
-        }
-        var days = $(this).find('td').first().text();
-        var city = $(this).find('td:nth-child(3)').first().text();
-
-        $(this).find('a').each( function() {
-            var description = $(this).text();
-            var link = $(this).attr('href');
-            // Add each link to the result list:
-            result.push({
-                year: curr_year,
-                month: curr_month,
-                days: days,
-                city: city,
-                description : description,
-                link : link
-            });
-        });
-    });
-
-    return result;
-}
-//..............................................................................
-
-
-/*
-  pre-2018 version:
-
-  Supermaster_FIN_season_172_calendar
-  http://www.federnuoto.it/discipline/master/circuito-supermaster/stagione-2017-2018.html
-*/
-function pageFunction(context) {
-    // called on every page the crawler visits, use it to extract data from it
-    var $ = context.jQuery;
-    var result = [];
-    var curr_year = '';
-    var curr_month = '';
-
-    $('table.calendario tr').each( function() {
-        if ( $(this).find('th').first().text() !== '' ) {
-            curr_year = $(this).find('th').first().text();
-        }
-        if ( $(this).find('th').last().text() !== '' ) {
-            curr_month = $(this).find('th').last().text();
-        }
-        var days = $(this).find('td').first().text();
-        var city = $(this).find('td:nth-child(3)').first().text();
-
-        $(this).find('a').each( function() {
-            var description = $(this).text();
-            var link = $(this).attr('href');
-            // Add each link to the result list:
-            result.push({
-                year: curr_year,
-                month: curr_month,
-                days: days,
-                city: city,
-                description : description,
-                link : link
-            });
-        });
-    });
-
-    return result;
-}
-//..............................................................................
-
-
-/*
-pre-2018 version:
-
-  Supermaster_FIN_download_meeting_results
-*/
-function pageFunction(context) {
-    // called on every page the crawler visits, use it to extract data from it
-    var $ = context.jQuery;
-
-    return document.getElementById('risultati-master').innerHTML;
-}
-//..............................................................................
-
-
-/*
-  pre-2018 version:
-
-  Vimercate_ASD_FIN_Meetings
-  - 2009: http://www.vimercatenuoto.org/rmaster09.htm
-  - 2010: http://www.vimercatenuoto.org/rmaster10.htm
-  - 2011: http://www.vimercatenuoto.org/rmaster11.htm
-  - 2012: http://www.vimercatenuoto.org/rmaster12.htm
-*/
-function pageFunction(context) {
-    // called on every page the crawler visits, use it to extract data from it
-    var $ = context.jQuery;
-    var result = [];
-
-    $('a').each( function() {
-        var description = $(this).text().trim();
-        var link = $(this).attr('href');
-        // Add each link to the result list if it's a result link:
-        if ( link.match( /master\/risultati/i ) ) {
-            result.push({
-                description : description,
-                link : link
-            });
-        }
-    });
-    return result;
-}
-//..............................................................................
+//-------------------------------------------------------------------------------------
