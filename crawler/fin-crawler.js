@@ -85,18 +85,23 @@ puppeteer
     // List of URL to process:
     const CSV_FILE = 'list.csv';
     const arrayOfURLs = await readCSVData( CSV_FILE );
-    console.log("\r\n*** FIN Results Crawler ***\r\n\r\nParsed list of URLs:");
-    console.log( Util.inspect(arrayOfURLs, false, null, true) );
+    console.log("\r\n*** FIN Results Crawler ***");
+    console.log(`\r\nTotal URLs: ${arrayOfURLs.length}`);
+    // console.log("\r\n\r\nParsed list of URLs:");
+    // console.log( Util.inspect(arrayOfURLs, false, null, true) );
 
-    for (var currURL of arrayOfURLs) {
-        console.log(`\r\n\r\nProcessing ${currURL.name}...`);
-        const url = currURL.url;
-        if (url == '') {
-          console.log(`URL is empty. Meeting is probably cancelled or not yet defined. Skipping...`);
-        }
-        else {
-          await processURL( url, browser );
-        }
+    for(var i = 0; i < arrayOfURLs.length; i++) {
+    // for (var currURL of arrayOfURLs) {
+      var currURL = arrayOfURLs[i];
+      console.log(`\r\n\r\n===============================================================================`);
+      console.log(`=> Processing URL ${i+1}/${arrayOfURLs.length}\r\n=> ${currURL.name}`);
+      const url = currURL.url;
+      if (url == '') {
+        console.log(`URL is empty. Meeting is probably cancelled or not yet defined. Skipping...`);
+      }
+      else {
+        await processURL( url, browser );
+      }
     }
     // Let's close the browser
     await browser.close();
@@ -206,6 +211,7 @@ async function pageFunction( url, htmlContents, arrayOfParams ) {
     var sectionData = [], okCount = 0, errorCount = 0, totCount = arrayOfParams.length;
 
     for (var params of arrayOfParams) {
+        const ajaxParams = params;
         await console.log(`\r\nFetching details...`);
         // DEBUG
         //await console.log( Util.inspect(params, true, null, true) ); // show hidden, depth, enable colors
@@ -215,12 +221,23 @@ async function pageFunction( url, htmlContents, arrayOfParams ) {
             cache: "no-cache",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             redirect: "follow",
-            body: encodeObjectParamsAsURI( params ) // The body is supposed to be an encoded string of JSON object params
+            body: encodeObjectParamsAsURI( ajaxParams ) // The body is supposed to be an encoded string of JSON object params
         })
-        .then( response => response.json() )
+        .then( response => {
+          // DEBUG
+          // console.log(`ajaxParams-1:`);
+          // console.log(ajaxParams);
+          return response.json();
+        })
         .then( jsonData => {
-            //console.log(`Returning from POST request: ${JSON.stringify(jsonData)}`);
-            sectionData.push( extractSectionDetails( jsonData['content'] ) );
+            // DEBUG
+            // console.log(`ajaxParams-2:`);
+            // console.log(ajaxParams);
+            var newSectionData = extractSectionDetails(jsonData['content'], ajaxParams);
+            // DEBUG
+            // console.log(`newSectionData:`);
+            // console.log(newSectionData);
+            sectionData.push( newSectionData );
             okCount++;
             console.log(`Processed ${okCount}/${totCount} section links.`);
         }).catch( error => {
@@ -271,12 +288,19 @@ function getOutputFilenameFromURL( url ) {
  *  Extracts data from an already expanded (retrieved) result section. (FIN HTML format, 2018-2019+)
  *  Uses cheerio fast parser to retrieve nodes like it was jQuery.
  */
-function extractSectionDetails( htmlString ) {
+function extractSectionDetails( htmlString, ajaxParams ) {
     console.log('Extracting details...');
     // DEBUG
-    //console.log("\r\n--------------------------------------------------------------");
-    //console.log(htmlString);
-    //console.log("--------------------------------------------------------------\r\n");
+    // console.log("\r\n--------------------------------------------------------------");
+    // console.log(htmlString);
+    // console.log("--------------------------------------------------------------\r\n");
+    // DEBUG:
+    // 'solr[id_evento]': '134170',
+    // 'solr[codice_gara]': '08',
+    // 'solr[sigla_categoria]': 'M35',
+    // 'solr[sesso]': 'M'
+    // console.log(`ajaxParams-3`);
+    // console.log(ajaxParams);
     var doc$ = cheerio.load(htmlString);
     var sectResult = [];
 
@@ -292,12 +316,12 @@ function extractSectionDetails( htmlString ) {
           pos:    doc$(".positions", item).text(),
           name:   doc$(".name", item).text(),
           year:   doc$(".anno", item).text(),
+          sex:    ajaxParams['solr[sesso]'],
           team:   doc$(".societa", item).text(),
           timing: doc$(".tempo", item).text(),
           score:  doc$(".punteggio", item).text()
         });
     });
-
     // DEBUG
     //console.log("\r\n--------------------------------------------------------------");
     //console.log(sectResult);
@@ -305,6 +329,10 @@ function extractSectionDetails( htmlString ) {
 
     return {
       title: sectionTitle,
+      fin_id_evento: ajaxParams['solr[id_evento]'],
+      fin_codice_gara: ajaxParams['solr[codice_gara]'],
+      fin_sigla_categoria: ajaxParams['solr[sigla_categoria]'],
+      fin_sesso: ajaxParams['solr[sesso]'],
       rows:  sectResult
     };
 }
