@@ -30,7 +30,7 @@ guard :spring, bundler: true do
 end
 
 rspec_options = {
-  cmd: 'spring rspec',
+  cmd: 'bin/rspec',
   # Exclude performance tests with fail-fast:
   # cmd_additional_args: "--color -f progress --order rand --fail-fast -t ~type:performance",
   cmd_additional_args: ' --color -f progress --order rand -t ~type:performance',
@@ -88,11 +88,11 @@ guard :rspec, rspec_options do
 end
 
 rubocop_options = {
-  cmd: 'spring rubocop',
+  cmd: 'rubocop',
   # With fuubar, offenses and warnings tot.:
   # cli: "-R -E -P -f fu -f o -f w"
   # With rails cops & autocorrect:
-  cli: '--require rubocop-rails'
+  cli: '-f fu --require rubocop-rails'
 }
 
 # Watch Ruby files for changes and run RuboCop:
