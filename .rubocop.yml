@@ -1,6 +1,12 @@
 require: rubocop-rails
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'spec/dummy/db/schema.rb'
+    - 'lib/tasks/crawler_fin_calendar.rake'
+
 # The behavior of RuboCop can be controlled via the .rubocop.yml
 # configuration file. It makes it possible to enable/disable
 # certain cops (checks) and to alter their behavior if they accept
