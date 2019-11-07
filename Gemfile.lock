@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:steveoro/goggles_core
-  revision: ae0a48b1dbf707344a306976363aa3389dd1822e
+  revision: 643a081a32d9ef51a921941214a65e767a48dc26
   specs:
-    goggles_core (1.4.23)
+    goggles_core (1.4.25)
       actionview (~> 5.1.6.2)
       active_hash_relation
       active_model_serializers
@@ -87,8 +87,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (6.0.0)
-      activerecord (~> 5.0)
+    acts-as-taggable-on (6.5.0)
+      activerecord (>= 5.0, < 6.1)
     acts_as_votable (0.12.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
