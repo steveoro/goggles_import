@@ -29,37 +29,37 @@ LOG_DIR           = Rails.root.join('log') unless defined? LOG_DIR
 
 
 namespace :crawler do
-
-  # Retrieves and memoizes the last FIN season id
-  def get_current_fin_season_id
-    # Memoize result to avoid multiple useless queries on the same run:
-    @current_fin_season_id ||= Season.is_not_ended.includes(:season_type)
-      .where('season_types.code': SeasonType::CODE_MAS_FIN).limit(1)
-      .first
-      .id
-  end
-  #-- -------------------------------------------------------------------------
-  #++
-
-
   desc <<-DESC
-  *** FIN Calendar STEP 1: "Calendar refresh" ***
+  --- FIN Calendar STEP 1: "Calendar refresh" ---
 
-Crawls the web to retrieve/update the current FIN Championship CALENDAR setup
+Crawls the web to retrieve or update the current FIN Championship CALENDAR setup
 for the current season.
 
-All DB modifications are serialized on an external SQL DB-diff log file.
+This "STEP 1" task will:
+- run fin_crawler.js to get a CSV listing of all defined Meetings;
+- process the result CSV, line by line;
+- compare each Meeting in the list with the existing FinCalendar rows;
+- determine if anything regarding the Meeting has been changed or updated
+  (schedule changes, updates to results or manifest links or whatsoever);
+- update existing Meeting or insert new ones;
+- serialize all DB modifications on an external SQL DB-diff log file.
 
-Options: [season_id=Season_id|<#{get_current_fin_season_id}>] [user_id=<1>]
+Options: [season_id=Season_id|<current_fin_season_id>] [user_id=<1>]
          [output_path=#{LOCALCOPY_DIR}]
 
   - 'season_id' override for Season ID used to update the FIN calendar.
   - 'user_id' Admin user performing this action (defaults to 1).
   - 'output_path' the path where the files will be stored after the crawling.
 
+The DB-diff file is environment-free and can be applied on any DB dump.
+
 DESC
-  task( fin_calendar_step1: ['require_env'] ) do |t|
+  task :fin_calendar_step1 do |t|
     puts "\r\n*** crawler::fin_calendar_step1 ***"
+    puts 'Requiring Rails environment to allow usage of any Model...'
+    require 'rails/all'
+    require Rails.root.join('config', 'environment')
+
     output_path = ENV.include?("output_path") ? ENV["output_path"] : LOCALCOPY_DIR
     log_dir     = ENV.include?("log_dir") ? ENV["log_dir"] : LOG_DIR
     user_id     = ENV.include?("user_id") ? ENV["user_id"].to_i : 1
@@ -75,6 +75,12 @@ DESC
     puts "- output_path.......: #{ output_path }"
     puts "- log_dir...........: #{ log_dir }"
     puts "\r\n"
+
+    sh "cd crawler ; pwd"
+    sh "cd #{Rails.root} ; pwd"
+
+    exit
+    #################################################### WIP
 
     calendar_rows_hash = from_csv_meeting_list_to_calendar_rows( meeting_list_on_csv_text )
     calendar_updater = FinCalendarPhase1Updater.new( user )
@@ -220,7 +226,7 @@ DESC
 
 
   desc <<-DESC
-  *** FIN Calendar STEP 2: "Data extraction" ***
+  --- FIN Calendar STEP 2: "Data extraction" ---
 
   Retrieves all Manifest and Result data files found at the URL links stored in
 the dedicated DB columns of the fin_calendars setup data table (for the current
@@ -241,7 +247,7 @@ All DB modifications are serialized on an external SQL DB-diff log file.
 
           *** This task uses the API @ apifier.com ***
 
-Options: [ [season_id=Season_id|<#{get_current_fin_season_id}>] | [row_id=FIN_Calendar_row_id] ]
+Options: [ [season_id=Season_id|<current_fin_season_id>] | [row_id=FIN_Calendar_row_id] ]
          [user_id=<1>]
          [use_files=<false>|true]
          [output_path=#{LOCALCOPY_DIR}]
@@ -378,7 +384,7 @@ DESC
 
 
   desc <<-DESC
-  *** FIN Calendar Synch STEP 3: "Parse & Meeting update" ***
+  --- FIN Calendar STEP 3: "Parse + Meeting update" ---
 
 Scans and parses the dedicated DB text-type columns of the fin_calendars setup
 data table (for the current season only) in order to extract the current meeting
@@ -392,7 +398,7 @@ the "step 1" & "step 2" task.
 All DB modifications are serialized on an external SQL DB-diff log file.
 
 
-Options: [ [season_id=Season_id|<#{get_current_fin_season_id}>] | [row_id=FIN_Calendar_row_id] ]
+Options: [ [season_id=Season_id|<get_current_fin_season_id>] | [row_id=FIN_Calendar_row_id] ]
          [user_id=<1>]
          [geocode=<false>|true]
          [api_key=Geocode_Google_Maps_API_Key]
@@ -543,6 +549,18 @@ DESC
 
 
   private
+
+
+  # Retrieves and memoizes the last FIN season id
+  def get_current_fin_season_id
+    # Memoize result to avoid multiple useless queries on the same run:
+    @current_fin_season_id ||= Season.is_not_ended.includes(:season_type)
+      .where('season_types.code': SeasonType::CODE_MAS_FIN).limit(1)
+      .first
+      .id
+  end
+  #-- -------------------------------------------------------------------------
+  #++
 
 
   # require 'net/http'
