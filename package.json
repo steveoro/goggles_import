@@ -6,7 +6,7 @@
     "csv-parser": "^2.3.0",
     "fs": "^0.0.1-security",
     "get-stream": "^5.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-fetch": "^2.6.0",
     "nodejs": "^0.0.0",
     "puppeteer": "^1.17.0",
